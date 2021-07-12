@@ -1,4 +1,12 @@
-#id {
+#post {
     overflow-y: auto; 
     max-height: 700px;
+}
+
+.dataitem:hover {
+    background-color: rgb(206, 206, 206);
+}
+
+.dataitem {
+    padding: 5px;
 }
