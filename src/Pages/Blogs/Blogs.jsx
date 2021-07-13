@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import './Blog.css'
+import './Blogs.css'
 
 const Blog = () => {
     const [data, setData] = useState([]);

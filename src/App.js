@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home'
-import Blog from './Pages/Blog/Blog'
+import Blogs from './Pages/Blogs/Blogs'
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         <Route path='/' exact>
           <Home/>
         </Route>
-        <Route path='/blog'>
-          <Blog/>
+        <Route path='/blogs'>
+          <Blogs/>
         </Route>
       </Switch>
       <Footer />
