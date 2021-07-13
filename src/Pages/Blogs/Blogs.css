@@ -3,10 +3,3 @@
     max-height: 700px;
 }
 
-.dataitem:hover {
-    background-color: #EFEFEF;
-}
-
-.dataitem {
-    padding: 5px;
-}

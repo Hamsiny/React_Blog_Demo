@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import './Blogs.css'
+import Blog from '../Blog/Blog'
 
-const Blog = () => {
+const Blogs = () => {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
@@ -23,12 +24,12 @@ const Blog = () => {
             <div className="container mt-4 mx-auto">
                 <h2 className="mb-3">Blog Posts</h2>
                 <div id="post" className="mr-3">
-                    {data.map(element => (
-                        <div key={element.id} className="mt-3 mr-3 dataitem">
-                            <h4>{element.id} - {element.title}</h4>
-                            <p>{element.body}</p>
-                            <hr/>
-                        </div>
+                    {data.map(blog => (
+                        <Blog 
+                            key={blog.id}
+                            blogId={blog.id}
+                            blogTitle={blog.title}
+                            blogBody={blog.body}/>
                     ))}
 
                 </div>
@@ -38,4 +39,4 @@ const Blog = () => {
 
 }
 
-export default Blog
+export default Blogs

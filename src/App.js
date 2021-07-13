@@ -8,6 +8,7 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home'
 import Blogs from './Pages/Blogs/Blogs'
 import Footer from './components/Footer/Footer';
+import BlogDetail from './Pages/BlogDetail/BlogDetail';
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
         <Route path='/' exact>
           <Home/>
         </Route>
-        <Route path='/blogs'>
-          <Blogs/>
+        <Route path='/blogs' exact>
+          <Blogs />
+        </Route>
+        <Route path='/blogs/:id'>
+          <BlogDetail />
         </Route>
       </Switch>
       <Footer />
