@@ -27,8 +27,8 @@ const BlogDetail = () => {
             <h4 className='mt-4 title'>{data.title}</h4>
             <h5 className='mt-3'>Blog Id: {data.id}</h5>
             <p className='mt-3 mb-5'>{data.body}</p>
-            <Link to='/blogs'><button className='btnn mr-3'>Back to Blog</button></Link>
-            <Link to='/'><button className='btnn'>Home</button></Link>
+            <Link to='/blogs'><button className='btnn black mr-3'>Back to Blog</button></Link>
+            <Link to='/'><button className='btnn black'>Home</button></Link>
 
         </div>
     )

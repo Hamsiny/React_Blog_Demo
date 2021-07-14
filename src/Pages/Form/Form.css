@@ -1,0 +1,19 @@
+.wform {
+    /* padding: 10px; */
+    margin-left: 25%;
+    margin-right: 25%;
+    border: grey 0.5px solid;
+    border-radius: 1%;
+    background-color: #EFEFEF;
+}
+
+.formtitle {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.blue {
+    background-color: #39A2DB;
+}
