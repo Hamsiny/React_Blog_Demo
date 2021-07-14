@@ -18,6 +18,10 @@
     background-color: #39A2DB;
 }
 
+.blue:hover {
+    background-color: #7C83FD;
+}
+
 .errormessage {
     color: red;
     font-size: 15px;
