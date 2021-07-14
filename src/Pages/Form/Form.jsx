@@ -7,11 +7,14 @@ const Form = () => {
         <>
             <div className="mt-5 wform">
                 <h3 className='formtitle'>Form</h3>
-                <form className='mt-4 mx-5 mb-4'>
+                <form className='needs-validation mt-4 mx-5 mb-4'>
                     <p><strong>Please fill your details:</strong></p>
                     <div className="form-group">
-                        <label for="exampleFormControlInput1">First Name</label>
-                        <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Your first name"/>
+                        <label for="validationCustom01">First Name</label>
+                        <input type="text" className="form-control" id="validationCustom01" placeholder="Your first name"/>
+                        <div className="valid-feedback">
+                            Looks good!
+                        </div>
                     </div>
                     <div className="form-group">
                         <label for="exampleFormControlInput1">Last Name</label>
