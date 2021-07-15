@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a react project which fetch data to render and has a validated form.
 
 ## Available Scripts
 
