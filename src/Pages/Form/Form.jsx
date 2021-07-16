@@ -14,7 +14,19 @@ import './Form.css'
 
 const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    let dateSelected = new Date();
+    const currentDate = new Date();
+    
+    const onSubmit = data => {
+        console.log(data);
+        dateSelected = new Date(document.getElementById('date').value);
+        console.log(dateSelected);
+        console.log(currentDate);
+        console.log(dateSelected.getFullYear() - currentDate.getFullYear());
+    }
+
+    const checkDate = dateOfBirth => (new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() < 100 && new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() > -100)
+
 
     return (
         <>
@@ -31,14 +43,14 @@ const Form = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="lastName">Last Name</label>
-                        <input {...register("lastName", { required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} type="text" className="form-control" id="exampleFormControlInput1" placeholder="Your last name" />
+                        <input {...register("lastName", { required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} type="text" className="form-control" id="lastname" placeholder="Your last name" />
                         {errors.lastName?.type === "required" && <p className='mt-2 errormessage'>Last Name can't be empty.</p>}
                         {errors.lastName?.type === "maxLength" && <p className='mt-2 errormessage'>Last name can't exceed 20 characters.</p>}
                         {errors.lastName?.type === "pattern" && <p className='mt-2 errormessage'>Alphabetical characters only.</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
-                        <input {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} type="text" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                        <input {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} type="text" className="form-control" id="email" placeholder="name@example.com" />
                         {errors.email?.type === "required" && <p className='mt-2 errormessage'>Email Name can't be empty.</p>}
                         {errors.email?.type === "pattern" && <p className='mt-2 errormessage'>Invalid Email Address.</p>}
                     </div>
@@ -52,12 +64,13 @@ const Form = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="dateOfBirth">Date of Birth</label>
-                        <input {...register("dateOfBirth", { required: true })} type="date" className="form-control" id="exampleFormControlInput1" />
+                        <input {...register("dateOfBirth", { required: true, validate: checkDate })} type="date" className="form-control" id="date" />
                         {errors.dateOfBirth?.type === "required" && <p className='mt-2 errormessage'>You must choose Date of Birth.</p>}
+                        {errors.dateOfBirth?.type === "validate" && <p className='mt-2 errormessage'>You can't choose date which less than or over 100 years from now.</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="comments">Comments</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter comments here"></textarea>
+                        <textarea className="form-control" id="comments" rows="3" placeholder="Enter comments here"></textarea>
                     </div>
                     <button id='submitbutton' className='btnn blue mr-2' type='submit'>Submit</button>
                     <button id='resetbutton' className='btnn blue mr-2' type='reset'>Reset</button>
