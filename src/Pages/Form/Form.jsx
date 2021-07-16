@@ -25,7 +25,7 @@ const Form = () => {
         console.log(dateSelected.getFullYear() - currentDate.getFullYear());
     }
 
-    const checkDate = dateOfBirth => (new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() < 100 && new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() > -100)
+    const checkDate = dateOfBirth => (new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() < 100 && new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() > -100);
 
 
     return (
