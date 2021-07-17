@@ -16,7 +16,7 @@ const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     let dateSelected = new Date();
     const currentDate = new Date();
-    
+
     const onSubmit = data => {
         console.log(data);
         dateSelected = new Date(document.getElementById('date').value);
@@ -25,7 +25,10 @@ const Form = () => {
         console.log(dateSelected.getFullYear() - currentDate.getFullYear());
     }
 
-    const checkDate = dateOfBirth => (new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() < 100 && new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() > -100);
+    // date validation condition
+    const checkDate100 = dateOfBirth => (new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() > -100);
+    const checkDateCur = dateOfBirth => (new Date(dateOfBirth) < currentDate);
+    const checkDateless10 = dateOfBirth => (new Date(dateOfBirth).getFullYear() - currentDate.getFullYear() < -10);
 
 
     return (
@@ -64,9 +67,11 @@ const Form = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="dateOfBirth">Date of Birth</label>
-                        <input {...register("dateOfBirth", { required: true, validate: checkDate })} type="date" className="form-control" id="date" />
+                        <input {...register("dateOfBirth", { required: true, validate: { checkDate100, checkDateCur, checkDateless10 } })} type="date" className="form-control" id="date" />
                         {errors.dateOfBirth?.type === "required" && <p className='mt-2 errormessage'>You must choose Date of Birth.</p>}
-                        {errors.dateOfBirth?.type === "validate" && <p className='mt-2 errormessage'>You can't choose date which less than or over 100 years from now.</p>}
+                        {errors.dateOfBirth?.type === "checkDate100" && <p className='mt-2 errormessage'>You can't choose date which over 100 years ago.</p>}
+                        {errors.dateOfBirth?.type === "checkDateCur" && <p className='mt-2 errormessage'>You can't choose date over now.</p>}
+                        {errors.dateOfBirth?.type === "checkDateless10" && <p className='mt-2 errormessage'>You can't choose date which less than 10 years.</p>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="comments">Comments</label>
